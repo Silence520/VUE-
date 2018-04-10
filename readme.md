@@ -272,3 +272,51 @@ vm.$set(this.$data,)   要走监听麻烦
 ![流程图](img/liucheng.png)
 
 ## 优化
+
+![流程图](img/you1.png)
+![流程图](img/you2.png)
+![流程图](img/you3.png)
+![流程图](img/you4.png)
+
+##  单向数据流
+![流程图](img/flow.png)
+
+> state，驱动应用的数据源；
+> view，以声明方式将 state 映射到视图；
+> actions，响应在 view 上的用户输入导致的状态变化。
+
+##### 但是，当我们的应用遇到多个组件共享状态时，单向数据流的简洁性很容易被破坏：
+> 多个视图依赖于同一状态。
+> 来自不同视图的行为需要变更同一状态。
+
+## vuex
+>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化
+
+![流程图](img/vuex.png)
+
+>* State: 单一状态树用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源 (SSOT)”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照
+>* Getters 有时候我们需要从 store 中的 state 中派生出一些状态，例如对列表进行过滤并计数
+>* Mutations 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。
+>* Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters
+>* Modules  Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：
+
+## 项目结构
+
+```base
+
+├── index.html
+├── main.js
+├── api
+│      └── ... # 抽取出API请求
+├── components
+│     ├── App.vue
+│     └── ...
+└── store
+          ├── index.js          # 我们组装模块并导出 store 的地方
+          ├── actions.js        # 根级别的 action
+          ├── mutations.js      # 根级别的 mutation
+          └── modules
+                      ├── cart.js       # 购物车模块
+                      └── products.js   # 产品模块
+
+```
