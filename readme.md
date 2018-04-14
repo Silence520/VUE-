@@ -224,10 +224,10 @@ Watcher.prototype = {
 
 
 ```
-初始化：new vue ->
-                    // observe.get- dep  存储一个监听数组
-                    // Compile-Watcher.update 更新数据
-//更新：observe -dep - watcher.update  更新数组 
+* 初始化：new vue ->
+* observe.get- dep  存储一个监听数组
+* Compile-Watcher.update 更新数据
+* 更新：observe -dep - watcher.update  更新数组 
 
 
 
