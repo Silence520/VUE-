@@ -229,6 +229,10 @@ Watcher.prototype = {
 * Compile-Watcher.update 更新数据
 * 更新：observe -dep - watcher.update  更新数组 
 
+## VUE 生命周期
+![流程图](img/life.png)
+![流程图](img/life2.png)
+
 
 
 ### VUE 3.0
